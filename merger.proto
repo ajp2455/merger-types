@@ -1,0 +1,43 @@
+syntax = "proto3";
+package merger;
+
+message Params {
+    int64 Conns = 1 [ json_name = "conns" ];
+    int64 Timeout = 2 [ json_name = "timeout" ];
+    int64 Endtime = 3 [ json_name = "endtime" ];
+    string Hostname = 4 [ json_name = "hostname" ];
+    string Origin = 5 [ json_name = "origin" ];
+}
+
+message Report {
+    Params Info = 1 [ json_name = "info" ];
+    repeated Client Clients = 2 [ json_name = "clients" ];
+    /* Points     [][3]int */
+    repeated Tuple Points = 3 [ json_name = "points" ];
+    repeated int64 Errors = 4 [ json_name = "errors" ];
+    repeated int64 Timeouts = 5 [ json_name = "timeouts" ];
+    map<string, string> ScriptData = 6;
+    /* ScriptData map[string]interface{} */
+}
+
+message Client {
+    int64 Id = 1 [ json_name = "id" ];
+    string Origin = 2 [ json_name = "origin" ];
+    repeated Window Windows = 3 [ json_name = "windows" ];
+    repeated int64 Errors = 4 [ json_name = "errors" ];
+    repeated int64 Established = 5 [ json_name = "established" ];
+    int64 Responses = 6 [ json_name = "responses" ];
+    int64 Timeouts = 7 [ json_name = "timeouts" ];
+}
+
+message Window {
+    int64 Value = 1 [ json_name = "value" ];
+    int64 Start = 2 [ json_name = "start" ];
+    int64 End = 3 [ json_name = "end" ];
+    int64 Iter = 4 [ json_name = "iter" ];
+    int64 Count = 5 [ json_name = "count" ];
+}
+
+message Tuple {
+    repeated int64 Data = 1 [ json_name = "data" ];
+}
