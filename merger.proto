@@ -1,43 +1,60 @@
 syntax = "proto3";
 package merger;
 
+import "tagger/tagger.proto";
+
 message Params {
-    int64 Conns = 1 [ json_name = "conns" ];
-    int64 Timeout = 2 [ json_name = "timeout" ];
-    int64 Endtime = 3 [ json_name = "endtime" ];
-    string Hostname = 4 [ json_name = "hostname" ];
-    string Origin = 5 [ json_name = "origin" ];
+    int64 Conns = 1 [ json_name = "conns", (tagger.tags) = "json:\"conns\"" ];
+    int64 Timeout = 2
+        [ json_name = "timeout", (tagger.tags) = "json:\"timeout\"" ];
+    int64 Endtime = 3
+        [ json_name = "endtime", (tagger.tags) = "json:\"endtime\"" ];
+    string Hostname = 4
+        [ json_name = "hostname", (tagger.tags) = "json:\"hostname\"" ];
+    string Origin = 5
+        [ json_name = "origin", (tagger.tags) = "json:\"origin\"" ];
 }
 
 message Report {
     Params Info = 1 [ json_name = "info" ];
-    repeated Client Clients = 2 [ json_name = "clients" ];
+    repeated Client Clients = 2
+        [ json_name = "clients", (tagger.tags) = "json:\"clients\"" ];
     /* Points     [][3]int */
-    repeated Tuple Points = 3 [ json_name = "points" ];
-    repeated int64 Errors = 4 [ json_name = "errors" ];
-    repeated int64 Timeouts = 5 [ json_name = "timeouts" ];
+    repeated Tuple Points = 3
+        [ json_name = "points", (tagger.tags) = "json:\"points\"" ];
+    repeated int64 Errors = 4
+        [ json_name = "errors", (tagger.tags) = "json:\"errors\"" ];
+    repeated int64 Timeouts = 5
+        [ json_name = "timeouts", (tagger.tags) = "json:\"timeouts\"" ];
     map<string, string> ScriptData = 6;
     /* ScriptData map[string]interface{} */
 }
 
 message Client {
-    int64 Id = 1 [ json_name = "id" ];
-    string Origin = 2 [ json_name = "origin" ];
-    repeated Window Windows = 3 [ json_name = "windows" ];
-    repeated int64 Errors = 4 [ json_name = "errors" ];
-    repeated int64 Established = 5 [ json_name = "established" ];
-    int64 Responses = 6 [ json_name = "responses" ];
-    int64 Timeouts = 7 [ json_name = "timeouts" ];
+    int64 Id = 1 [ json_name = "id", (tagger.tags) = "json:\"id\"" ];
+    string Origin = 2
+        [ json_name = "origin", (tagger.tags) = "json:\"origin\"" ];
+    repeated Window Windows = 3
+        [ json_name = "windows", (tagger.tags) = "json:\"windows\"" ];
+    repeated int64 Errors = 4
+        [ json_name = "errors", (tagger.tags) = "json:\"errors\"" ];
+    repeated int64 Established = 5
+        [ json_name = "established", (tagger.tags) = "json:\"established\"" ];
+    int64 Responses = 6
+        [ json_name = "responses", (tagger.tags) = "json:\"responses\"" ];
+    int64 Timeouts = 7
+        [ json_name = "timeouts", (tagger.tags) = "json:\"timeouts\"" ];
 }
 
 message Window {
-    int64 Value = 1 [ json_name = "value" ];
-    int64 Start = 2 [ json_name = "start" ];
-    int64 End = 3 [ json_name = "end" ];
-    int64 Iter = 4 [ json_name = "iter" ];
-    int64 Count = 5 [ json_name = "count" ];
+    int64 Value = 1 [ json_name = "value", (tagger.tags) = "json:\"conns\"" ];
+    int64 Start = 2 [ json_name = "start", (tagger.tags) = "json:\"conns\"" ];
+    int64 End = 3 [ json_name = "end", (tagger.tags) = "json:\"conns\"" ];
+    int64 Iter = 4 [ json_name = "iter", (tagger.tags) = "json:\"conns\"" ];
+    int64 Count = 5 [ json_name = "count", (tagger.tags) = "json:\"conns\"" ];
 }
 
 message Tuple {
-    repeated int64 Data = 1 [ json_name = "data" ];
+    repeated int64 Data = 1
+        [ json_name = "data", (tagger.tags) = "json:\"conns\"" ];
 }
