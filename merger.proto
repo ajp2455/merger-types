@@ -4,19 +4,22 @@ package merger;
 import "tagger/tagger.proto";
 
 message Params {
-    int64 Conns = 1 [ json_name = "conns", (tagger.tags) = "json:\"conns,omitempty\"" ];
+    int64 Conns = 1
+        [ json_name = "conns", (tagger.tags) = "json:\"conns,omitempty\"" ];
     int64 Timeout = 2
         [ json_name = "timeout", (tagger.tags) = "json:\"timeout,omitempty\"" ];
     int64 Endtime = 3
         [ json_name = "endtime", (tagger.tags) = "json:\"endtime,omitempty\"" ];
-    string Hostname = 4
-        [ json_name = "hostname", (tagger.tags) = "json:\"hostname,omitempty\"" ];
+    string Hostname = 4 [
+        json_name = "hostname",
+        (tagger.tags) = "json:\"hostname,omitempty\""
+    ];
     string Origin = 5
         [ json_name = "origin", (tagger.tags) = "json:\"origin,omitempty\"" ];
 }
 
 message Report {
-    Params Info = 1 [ json_name = "info" ];
+    Params Info = 1 [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\""];
     repeated Client Clients = 2
         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ];
     /* Points     [][3]int */
@@ -24,8 +27,10 @@ message Report {
         [ json_name = "points", (tagger.tags) = "json:\"points,omitempty\"" ];
     repeated int64 Errors = 4
         [ json_name = "errors", (tagger.tags) = "json:\"errors,omitempty\"" ];
-    repeated int64 Timeouts = 5
-        [ json_name = "timeouts", (tagger.tags) = "json:\"timeouts,omitempty\"" ];
+    repeated int64 Timeouts = 5 [
+        json_name = "timeouts",
+        (tagger.tags) = "json:\"timeouts,omitempty\""
+    ];
     map<string, string> ScriptData = 6;
     /* ScriptData map[string]interface{} */
 }
@@ -38,23 +43,40 @@ message Client {
         [ json_name = "windows", (tagger.tags) = "json:\"windows,omitempty\"" ];
     repeated int64 Errors = 4
         [ json_name = "errors", (tagger.tags) = "json:\"errors,omitempty\"" ];
-    repeated int64 Established = 5
-        [ json_name = "established", (tagger.tags) = "json:\"established,omitempty\"" ];
-    int64 Responses = 6
-        [ json_name = "responses", (tagger.tags) = "json:\"responses,omitempty\"" ];
-    int64 Timeouts = 7
-        [ json_name = "timeouts", (tagger.tags) = "json:\"timeouts,omitempty\"" ];
+    repeated int64 Established = 5 [
+        json_name = "established",
+        (tagger.tags) = "json:\"established,omitempty\""
+    ];
+    int64 Responses = 6 [
+        json_name = "responses",
+        (tagger.tags) = "json:\"responses,omitempty\""
+    ];
+    int64 Timeouts = 7 [
+        json_name = "timeouts",
+        (tagger.tags) = "json:\"timeouts,omitempty\""
+    ];
 }
 
 message Window {
-    int64 Value = 1 [ json_name = "value", (tagger.tags) = "json:\"value,omitempty\"" ];
-    int64 Start = 2 [ json_name = "start", (tagger.tags) = "json:\"start,omitempty\"" ];
-    int64 End = 3 [ json_name = "end", (tagger.tags) = "json:\"end,omitempty\"" ];
-    int64 Iter = 4 [ json_name = "iter", (tagger.tags) = "json:\"iter,omitempty\"" ];
-    int64 Count = 5 [ json_name = "count", (tagger.tags) = "json:\"count,omitempty\"" ];
+    int64 Value = 1
+        [ json_name = "value", (tagger.tags) = "json:\"value,omitempty\"" ];
+    int64 Start = 2
+        [ json_name = "start", (tagger.tags) = "json:\"start,omitempty\"" ];
+    int64 End = 3
+        [ json_name = "end", (tagger.tags) = "json:\"end,omitempty\"" ];
+    int64 Iter = 4
+        [ json_name = "iter", (tagger.tags) = "json:\"iter,omitempty\"" ];
+    int64 Count = 5
+        [ json_name = "count", (tagger.tags) = "json:\"count,omitempty\"" ];
 }
 
 message Tuple {
     repeated int64 Data = 1
         [ json_name = "data", (tagger.tags) = "json:\"data,omitempty\"" ];
+}
+
+message Payload {
+    Params Info = 1 [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\""];
+    repeated Client Clients = 2
+        [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ];
 }
