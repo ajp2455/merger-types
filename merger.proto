@@ -76,11 +76,11 @@ message Tuple {
         [ json_name = "data", (tagger.tags) = "json:\"data,omitempty\"" ];
 }
 
-message Payload {
-    Params Info = 1
-        [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\"" ];
-    repeated Client Clients = 2
-        [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ];
-    bytes ScriptData = 3
-        [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\"" ];
-}
+/* message Payload { */
+/*     Params Info = 1 */
+/*         [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\"" ]; */
+/*     repeated Client Clients = 2 */
+/*         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ]; */
+/*     bytes ScriptData = 3 */
+/*         [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\"" ]; */
+/* } */
