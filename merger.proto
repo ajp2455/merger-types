@@ -47,14 +47,14 @@ message Client {
 }
 
 message Window {
-    int64 Value = 1 [ json_name = "value", (tagger.tags) = "json:\"conns\"" ];
-    int64 Start = 2 [ json_name = "start", (tagger.tags) = "json:\"conns\"" ];
-    int64 End = 3 [ json_name = "end", (tagger.tags) = "json:\"conns\"" ];
-    int64 Iter = 4 [ json_name = "iter", (tagger.tags) = "json:\"conns\"" ];
-    int64 Count = 5 [ json_name = "count", (tagger.tags) = "json:\"conns\"" ];
+    int64 Value = 1 [ json_name = "value", (tagger.tags) = "json:\"value\"" ];
+    int64 Start = 2 [ json_name = "start", (tagger.tags) = "json:\"start\"" ];
+    int64 End = 3 [ json_name = "end", (tagger.tags) = "json:\"end\"" ];
+    int64 Iter = 4 [ json_name = "iter", (tagger.tags) = "json:\"iter\"" ];
+    int64 Count = 5 [ json_name = "count", (tagger.tags) = "json:\"count\"" ];
 }
 
 message Tuple {
     repeated int64 Data = 1
-        [ json_name = "data", (tagger.tags) = "json:\"conns\"" ];
+        [ json_name = "data", (tagger.tags) = "json:\"data\"" ];
 }
