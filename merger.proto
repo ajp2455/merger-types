@@ -31,7 +31,7 @@ message Report {
         json_name = "timeouts",
         (tagger.tags) = "json:\"timeouts,omitempty\""
     ];
-    map<string, PerfList> ScriptData = 6
+    bytes ScriptData = 6
         [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\"" ];
     /* ScriptData map[string]interface{} */
 }
@@ -81,16 +81,6 @@ message Payload {
         [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\"" ];
     repeated Client Clients = 2
         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ];
-}
-
-message PerfList {
-    repeated PerfPoint Points = 1
-        [ json_name = "points", (tagger.tags) = "json:\"points,omitempty\"" ];
-}
-
-message PerfPoint {
-    int64 value = 1
-        [ json_name = "value", (tagger.tags) = "json:\"value,omitempty\"" ];
-    int64 time = 2
-        [ json_name = "time", (tagger.tags) = "json:\"time,omitempty\"" ];
+    bytes ScriptData = 3
+        [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\"" ];
 }
