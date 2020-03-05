@@ -19,10 +19,10 @@ message Params {
 }
 
 message Report {
-    Params Info = 1 [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\""];
+    Params Info = 1
+        [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\"" ];
     repeated Client Clients = 2
         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ];
-    /* Points     [][3]int */
     repeated Tuple Points = 3
         [ json_name = "points", (tagger.tags) = "json:\"points,omitempty\"" ];
     repeated int64 Errors = 4
@@ -31,7 +31,8 @@ message Report {
         json_name = "timeouts",
         (tagger.tags) = "json:\"timeouts,omitempty\""
     ];
-    map<string, string> ScriptData = 6;
+    map<string, PerfList> ScriptData = 6
+        [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\"" ];
     /* ScriptData map[string]interface{} */
 }
 
@@ -76,7 +77,20 @@ message Tuple {
 }
 
 message Payload {
-    Params Info = 1 [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\""];
+    Params Info = 1
+        [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\"" ];
     repeated Client Clients = 2
         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ];
+}
+
+message PerfList {
+    repeated PerfPoint Points = 1
+        [ json_name = "points", (tagger.tags) = "json:\"points,omitempty\"" ];
+}
+
+message PerfPoint {
+    int64 value = 1
+        [ json_name = "value", (tagger.tags) = "json:\"value,omitempty\"" ];
+    int64 time = 2
+        [ json_name = "time", (tagger.tags) = "json:\"time,omitempty\"" ];
 }
