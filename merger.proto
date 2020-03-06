@@ -37,7 +37,7 @@ message Report {
 }
 
 message Client {
-    int64 Id = 1 [ json_name = "id", (tagger.tags) = "json:\"id,omitempty\"" ];
+    int64 Id = 1 [ json_name = "id", (tagger.tags) = "json:\"id\"" ];
     string Origin = 2
         [ json_name = "origin", (tagger.tags) = "json:\"origin,omitempty\"" ];
     repeated Window Windows = 3
@@ -50,11 +50,11 @@ message Client {
     ];
     int64 Responses = 6 [
         json_name = "responses",
-        (tagger.tags) = "json:\"responses,omitempty\""
+        (tagger.tags) = "json:\"responses\""
     ];
     int64 Timeouts = 7 [
         json_name = "timeouts",
-        (tagger.tags) = "json:\"timeouts,omitempty\""
+        (tagger.tags) = "json:\"timeouts\""
     ];
 }
 
