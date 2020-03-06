@@ -41,12 +41,12 @@ message Client {
     string Origin = 2
         [ json_name = "origin", (tagger.tags) = "json:\"origin,omitempty\"" ];
     repeated Window Windows = 3
-        [ json_name = "windows", (tagger.tags) = "json:\"windows,omitempty\"" ];
+        [ json_name = "windows", (tagger.tags) = "json:\"windows\"" ];
     repeated int64 Errors = 4
-        [ json_name = "errors", (tagger.tags) = "json:\"errors,omitempty\"" ];
+        [ json_name = "errors", (tagger.tags) = "json:\"errors\"" ];
     repeated int64 Established = 5 [
         json_name = "established",
-        (tagger.tags) = "json:\"established,omitempty\""
+        (tagger.tags) = "json:\"established\""
     ];
     int64 Responses = 6 [
         json_name = "responses",
@@ -80,7 +80,9 @@ message Tuple {
 /*     Params Info = 1 */
 /*         [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\"" ]; */
 /*     repeated Client Clients = 2 */
-/*         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ]; */
+/*         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\""
+ * ]; */
 /*     bytes ScriptData = 3 */
-/*         [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\"" ]; */
+/*         [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\""
+ * ]; */
 /* } */
