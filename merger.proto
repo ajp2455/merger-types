@@ -42,20 +42,14 @@ message Client {
         [ json_name = "origin", (tagger.tags) = "json:\"origin,omitempty\"" ];
     repeated Window Windows = 3
         [ json_name = "windows", (tagger.tags) = "json:\"windows\"" ];
-    repeated Event Errors = 4
+    repeated int64 Errors = 4
         [ json_name = "errors", (tagger.tags) = "json:\"errors\"" ];
-    repeated Event Established = 5
+    repeated int64 Established = 5
         [ json_name = "established", (tagger.tags) = "json:\"established\"" ];
     int64 Responses = 6
         [ json_name = "responses", (tagger.tags) = "json:\"responses\"" ];
     int64 Timeouts = 7
         [ json_name = "timeouts", (tagger.tags) = "json:\"timeouts\"" ];
-}
-
-message Event {
-    int64 Time = 1 [ json_name = "time", (tagger.tags) = "json:\"time\"" ];
-    int64 Message = 2
-        [ json_name = "message", (tagger.tags) = "json:\"message\"" ];
 }
 
 message Window {
