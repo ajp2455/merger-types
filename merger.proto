@@ -21,11 +21,31 @@ message Params {
 message Report {
     Params Info = 1
         [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\"" ];
+
     repeated Client Clients = 2
         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ];
-    bytes ScriptData = 6
+
+    repeated int64 Latencies = 3 [
+        json_name = "latencies",
+        (tagger.tags) = "json:\"latencies,omitempty\""
+    ];
+
+    repeated int64 Times = 4
+        [ json_name = "times", (tagger.tags) = "json:\"times,omitempty\"" ];
+
+    repeated int64 Codes = 5
+        [ json_name = "codes", (tagger.tags) = "json:\"codes,omitempty\"" ];
+
+    repeated int64 Timeouts = 6 [
+        json_name = "timeouts",
+        (tagger.tags) = "json:\"timeouts,omitempty\""
+    ];
+
+    repeated int64 Errors = 7
+        [ json_name = "errors", (tagger.tags) = "json:\"errors,omitempty\"" ];
+
+    bytes ScriptData = 8
         [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\"" ];
-    /* ScriptData map[string]interface{} */
 }
 
 message Client {
