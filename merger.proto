@@ -23,14 +23,6 @@ message Report {
         [ json_name = "info", (tagger.tags) = "json:\"info,omitempty\"" ];
     repeated Client Clients = 2
         [ json_name = "clients", (tagger.tags) = "json:\"clients,omitempty\"" ];
-    repeated Tuple Points = 3
-        [ json_name = "points", (tagger.tags) = "json:\"points,omitempty\"" ];
-    repeated int64 Errors = 4
-        [ json_name = "errors", (tagger.tags) = "json:\"errors,omitempty\"" ];
-    repeated int64 Timeouts = 5 [
-        json_name = "timeouts",
-        (tagger.tags) = "json:\"timeouts,omitempty\""
-    ];
     bytes ScriptData = 6
         [ json_name = "script", (tagger.tags) = "json:\"script,omitempty\"" ];
     /* ScriptData map[string]interface{} */
