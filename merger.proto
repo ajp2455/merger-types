@@ -15,7 +15,9 @@ message Params {
         (tagger.tags) = "json:\"hostname,omitempty\""
     ];
     string Origin = 5
-        [ json_name = "origin", (tagger.tags) = "json:\"origin,omitempty\"" ];
+        [ json_name = "origins", (tagger.tags) = "json:\"origins,omitempty\"" ];
+    map<int64, string> Delays = 6
+        [ json_name = "delays", (tagger.tags) = "json:\"delays,omitempty\"" ];
 }
 
 message Report {
