@@ -16,7 +16,7 @@ message Params {
     ];
     string Origin = 5
         [ json_name = "origins", (tagger.tags) = "json:\"origins,omitempty\"" ];
-    map<int64, string> Delays = 6
+    map<string, int64> Delays = 6
         [ json_name = "delays", (tagger.tags) = "json:\"delays,omitempty\"" ];
 }
 
