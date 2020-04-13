@@ -7,6 +7,5 @@ type Payload struct {
 }
 
 func (w *Window) IsInsidePeriod(low, high int64) bool {
-	return ((w.Start > low && w.End < high) || (w.Start < high && w.Start > low) ||
-		(w.End < high && w.End > low) || ((low < w.End && low > w.Start) && (high < w.End && high > w.Start)))
+	return w.Start <= high && w.End >= low
 }
